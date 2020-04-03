@@ -1,0 +1,66 @@
+.card {
+    width: 100px;
+    height: 150px;
+    background-color: #ffd31d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #666;
+    border-radius: 5px;
+    margin: 0.3125em;
+}
+
+.card.revealed {
+    cursor: not-allowed;
+    animation-name: rotatecard;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.card.pair-found {
+    cursor: not-allowed;
+    transform: rotateY(180deg); background-color: #fae7cb;
+    animation-name: pairfound;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+    .card span {
+        font-size: 2em;
+        opacity: 0;
+        user-select: none;
+    }
+
+    .card span.revealed {
+        animation-name: revealcontent;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 70px;
+        height: 105px;
+        margin: 0.1875em;
+    }
+
+    .card span {
+        font-size: 1.5em;
+    }
+}
+
+@keyframes revealcontent {
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes rotatecard {
+    20% { background-color: #ffd31d; }
+    100% { transform: rotateY(180deg); background-color: #fae7cb; }
+}
+
+@keyframes pairfound {
+    100% { background-color: #72ff72; }
+}

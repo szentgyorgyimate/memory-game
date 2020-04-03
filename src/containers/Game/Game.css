@@ -1,0 +1,131 @@
+.header {
+    z-index: 2;
+    box-sizing: border-box;
+    height: 100px;
+    margin-bottom: 2em;
+    background-color: #fae7cb;
+    box-shadow: 0 2px 10px #999;
+}
+
+    .header .status {
+        box-sizing: border-box;
+        width: 440px;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header .status button {
+        cursor: pointer;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: #72ff72;
+        color: #333;
+        padding: 0.5em;
+        font-size: 1.5em;
+    }
+
+        .header .status button:hover {
+            background-color: #51bb51;
+        }
+
+        .header .status button.disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+    .header .status span {
+        font-size: 1.5em;
+    }
+
+        .header .status span.match {
+            font-size: 0em;
+            color: #ff7272;
+            font-weight: bold;
+            animation: match;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .header .status span.win {
+            font-size: 0em;
+            opacity: 0;
+            color: #51bb51;
+            font-weight: bold;
+            animation: win;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+.game-area {
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 440px;
+}
+
+@media screen and (max-width: 480px) {
+    .game-area {
+        max-width: 305px;
+        min-width: 305px;
+    }
+
+    .header {
+        height: 100px;
+        margin-bottom: 1em;
+    }
+
+    .header .status {
+        width: 100%;
+        flex-direction: column;
+        padding: 0.3125em 0; 
+    }
+        .header .status span {
+            font-size: 1.2em;
+        }
+
+        .header .status button {
+            padding: 0.3125em;
+            font-size: 1.2em;
+        }
+
+        .header .status span.match {
+            animation: matchSmall;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .header .status span.win {
+            animation: winSmall;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+}
+
+@keyframes match {
+    10% { font-size: 1.5em; }
+    80% { font-size: 1.5em; }
+    100% { font-size: 0em; }
+}
+
+@keyframes matchSmall {
+    10% { font-size: 1.2em; }
+    80% { font-size: 1.2em; }
+    100% { font-size: 0em; }
+}
+
+@keyframes win {
+    100% { font-size: 1.5em; opacity: 1; }
+}
+
+@keyframes winSmall {
+    100% { font-size: 1.2em; opacity: 1; }
+}
