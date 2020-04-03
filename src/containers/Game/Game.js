@@ -57,7 +57,7 @@ const Game = () => {
             default: return <span></span>;
         }
     };
-    console.log(game.cards);
+    
     return <div className="game">
         <div className="header">
             <div className="status">
